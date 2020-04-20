@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/SoftPlatform.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Assets/Sprites/SoftPlatform.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 285, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 300, 20 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 285, 5 )
+
+[node name="SoftPlatform1" type="StaticBody2D"]
+editor/display_folded = true
+position = Vector2( 1280, -128.247 )
+collision_layer = 105
+collision_mask = 104
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 20 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="PlayerDetect" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetect"]
+shape = SubResource( 2 )
+
+[node name="PlayerOverlap" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerOverlap"]
+shape = SubResource( 3 )
+
+[node name="FallTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="PlayerDetect" to="." method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="PlayerDetect" to="." method="_on_player_detect_body_exited"]
+[connection signal="body_entered" from="PlayerOverlap" to="." method="_on_player_overlap_body_entered"]
+[connection signal="body_exited" from="PlayerOverlap" to="." method="_on_player_overlap_body_exited"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]

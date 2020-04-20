@@ -1,0 +1,229 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/LollipopWitch.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0000.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0001.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0002.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0003.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0004.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0005.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0006.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0007.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0008.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0009.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0010.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopWitch0011.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0000.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0001.png" type="Texture" id=16]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0002.png" type="Texture" id=17]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0003.png" type="Texture" id=18]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0004.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0005.png" type="Texture" id=20]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0006.png" type="Texture" id=21]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0007.png" type="Texture" id=22]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0008.png" type="Texture" id=23]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0009.png" type="Texture" id=24]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0010.png" type="Texture" id=25]
+[ext_resource path="res://Enemies/Assets/Sprites/33/LollipopStaff0011.png" type="Texture" id=26]
+[ext_resource path="res://SFX/Enemy/WitchAlert.wav" type="AudioStream" id=27]
+[ext_resource path="res://SFX/Magic1.wav" type="AudioStream" id=28]
+[ext_resource path="res://SFX/Enemy/WitchDeath.wav" type="AudioStream" id=29]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 30.0
+height = 50.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 300, 50 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "attack",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=5]
+length = 1.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/Body:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 2, 0.482968 ),
+"update": 0,
+"values": [ Vector2( 0, -30 ), Vector2( 0, -34 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/Staff:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -30 ), Vector2( 0, -34 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 40, 70 )
+
+[sub_resource type="Animation" id=7]
+resource_name = "attack"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("Flippable/Staff")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "attack" ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/Staff:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Controller")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "chase" ],
+"method": "set_state"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Alert")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Hit")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="LollipopWitch" index="0" instance=ExtResource( 1 )]
+colors = [ Color( 0.52549, 0.188235, 0.835294, 1 ), Color( 0.286275, 0.121569, 0.54902, 1 ), Color( 0.407843, 0.878431, 0.0941176, 1 ), Color( 0.870588, 0.176471, 0.196078, 1 ) ]
+maxhealth = 300
+coin = 15
+walkdistance = 700.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="Controller" parent="." index="3"]
+script = ExtResource( 2 )
+
+[node name="HitBox" parent="Flippable" index="2"]
+position = Vector2( 300, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="Body" type="AnimatedSprite" parent="Flippable" index="3"]
+position = Vector2( 0, -31.5352 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+frame = 2
+playing = true
+
+[node name="Staff" type="AnimatedSprite" parent="Flippable" index="4"]
+position = Vector2( 0, -31.4781 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 4 )
+
+[node name="FloatAnim" type="AnimationPlayer" parent="." index="5"]
+autoplay = "default"
+anims/default = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
+shape = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+anims/attack = SubResource( 7 )
+
+[node name="Alert" parent="." index="11"]
+stream = ExtResource( 27 )
+volume_db = -7.0
+
+[node name="Hit" parent="." index="12"]
+stream = ExtResource( 28 )
+volume_db = -7.0
+pitch_scale = 0.6
+
+[node name="Death" parent="." index="13"]
+stream = ExtResource( 29 )
+

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="TestEnemy" instance=ExtResource( 1 )]
+
+[node name="Sprite" type="Sprite" parent="Flippable" index="2"]
+texture = ExtResource( 2 )
+
+[node name="HitBox" parent="Flippable" index="3"]
+position = Vector2( 50, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+shape = SubResource( 1 )
+

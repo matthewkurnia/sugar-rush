@@ -1,0 +1,214 @@
+[gd_scene load_steps=42 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/GingerBrute.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0000.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0013.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0014.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0015.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0016.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0017.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0018.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0019.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0020.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0021.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0022.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0023.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0024.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0025.png" type="Texture" id=16]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0026.png" type="Texture" id=17]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0027.png" type="Texture" id=18]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0028.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0029.png" type="Texture" id=20]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0030.png" type="Texture" id=21]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0002.png" type="Texture" id=22]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0003.png" type="Texture" id=23]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0004.png" type="Texture" id=24]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0005.png" type="Texture" id=25]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0006.png" type="Texture" id=26]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0007.png" type="Texture" id=27]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0008.png" type="Texture" id=28]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0009.png" type="Texture" id=29]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0010.png" type="Texture" id=30]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0011.png" type="Texture" id=31]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0012.png" type="Texture" id=32]
+[ext_resource path="res://Enemies/Assets/Sprites/21/GingerBrute0001.png" type="Texture" id=33]
+[ext_resource path="res://SFX/Enemy/BruteAlert.wav" type="AudioStream" id=34]
+[ext_resource path="res://SFX/Sword1.wav" type="AudioStream" id=35]
+[ext_resource path="res://SFX/Enemy/BruteDeath.wav" type="AudioStream" id=36]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 125, 200 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 100, 170 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 125.0
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "walk",
+"speed": 9.0
+} ]
+
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+length = 2.5
+tracks/0/type = "method"
+tracks/0/path = NodePath("Flippable/AnimatedSprite")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "play"
+}, {
+"args": [ "attack" ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Controller")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "chase" ],
+"method": "set_state"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Alert")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Hit")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Death")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="GingerBrute" instance=ExtResource( 1 )]
+colors = [ Color( 0.690196, 0.376471, 0.207843, 1 ), Color( 0.501961, 0.215686, 0.164706, 1 ), Color( 0.894118, 0.121569, 0.231373, 1 ), Color( 1, 1, 1, 1 ) ]
+maxhealth = 425
+coin = 15
+walkspeed = 150.0
+walkdistance = 1000.0
+turntime = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+position = Vector2( 0, 30 )
+shape = SubResource( 2 )
+
+[node name="Controller" parent="." index="4"]
+script = ExtResource( 2 )
+
+[node name="HitBox" parent="Flippable" index="2"]
+position = Vector2( 415, 50 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flippable" index="3"]
+position = Vector2( 0, -170 )
+scale = Vector2( -0.5, 0.5 )
+frames = SubResource( 4 )
+animation = "idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+anims/attack = SubResource( 5 )
+
+[node name="Alert" parent="." index="10"]
+stream = ExtResource( 34 )
+
+[node name="Hit" parent="." index="11"]
+stream = ExtResource( 35 )
+volume_db = -2.0
+attenuation = 0.965936
+
+[node name="Death" parent="." index="12"]
+stream = ExtResource( 36 )
+

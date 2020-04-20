@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CherryAlert.wav-a0500642078d99af48546a0c55a97349.sample"
+
+[deps]
+
+source_file="res://SFX/Enemy/CherryAlert.wav"
+dest_files=[ "res://.import/CherryAlert.wav-a0500642078d99af48546a0c55a97349.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Rifle.wav-38a89ec131050d02059938bd516c7384.sample"
+
+[deps]
+
+source_file="res://SFX/Rifle.wav"
+dest_files=[ "res://.import/Rifle.wav-38a89ec131050d02059938bd516c7384.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

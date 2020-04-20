@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Bgr/1.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Bgr/2.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Bgr/3.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Bgr/4.png" type="Texture" id=5]
+[ext_resource path="res://Menu/Bgr/5.png" type="Texture" id=6]
+[ext_resource path="res://Menu/Title.png" type="Texture" id=7]
+[ext_resource path="res://Menu/PlayButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu/SettingsButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menu/QuitButton.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "default"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("3:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Default"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("4:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("5:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -360.0 ]
+}
+
+[node name="Control" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Bgr" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control" type="Control" parent="Bgr"]
+margin_left = 960.0
+margin_top = 540.0
+margin_right = 960.0
+margin_bottom = 540.0
+
+[node name="1" type="Sprite" parent="Bgr/Control"]
+texture = ExtResource( 2 )
+
+[node name="2" type="Sprite" parent="Bgr/Control"]
+texture = ExtResource( 3 )
+
+[node name="3" type="Sprite" parent="Bgr/Control"]
+texture = ExtResource( 4 )
+
+[node name="4" type="Sprite" parent="Bgr/Control"]
+texture = ExtResource( 5 )
+
+[node name="5" type="Sprite" parent="Bgr/Control"]
+texture = ExtResource( 6 )
+
+[node name="Speed1" type="AnimationPlayer" parent="Bgr/Control"]
+autoplay = "default"
+playback_speed = 0.5
+anims/default = SubResource( 1 )
+
+[node name="Speed2" type="AnimationPlayer" parent="Bgr/Control"]
+autoplay = "default"
+playback_speed = 0.5
+anims/default = SubResource( 2 )
+
+[node name="Speed3" type="AnimationPlayer" parent="Bgr/Control"]
+autoplay = "Default"
+playback_speed = 0.5
+anims/Default = SubResource( 3 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 210.0
+margin_top = 116.0
+margin_right = 1710.0
+margin_bottom = 964.0
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 1500.0
+margin_bottom = 236.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_right = 1500.0
+margin_bottom = 236.0
+texture = ExtResource( 7 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 240.0
+margin_right = 1500.0
+margin_bottom = 848.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+margin_left = 350.0
+margin_right = 1150.0
+margin_bottom = 608.0
+
+[node name="Button1" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" instance=ExtResource( 8 )]
+
+[node name="Button2" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" instance=ExtResource( 9 )]
+margin_top = 204.0
+margin_bottom = 404.0
+
+[node name="Button3" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer" instance=ExtResource( 10 )]
+margin_top = 408.0
+margin_bottom = 608.0
+

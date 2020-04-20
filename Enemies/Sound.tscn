@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Sound" type="Node2D"]
+
+[node name="Alert" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+

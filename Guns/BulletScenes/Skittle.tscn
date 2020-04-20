@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Guns/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guns/Assets/Sprites/Bullets/Skittle1.png" type="Texture" id=2]
+[ext_resource path="res://Guns/BulletScenes/Skittle.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 359.9 ]
+}
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+[node name="Bullet" instance=ExtResource( 1 )]
+bulletvelo = 1000
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite" index="0"]
+autoplay = "default"
+anims/default = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 2 )
+

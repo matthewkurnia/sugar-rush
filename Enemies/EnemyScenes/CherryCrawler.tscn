@@ -1,0 +1,170 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/CherryCrawler.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0006.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0007.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0008.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0009.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0010.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0011.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0012.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0013.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0014.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0000.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0001.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0002.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0003.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Assets/Sprites/13/CherryCrawler0004.png" type="Texture" id=16]
+[ext_resource path="res://SFX/Enemy/CherryAlert.wav" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Sneeze.wav" type="AudioStream" id=18]
+[ext_resource path="res://SFX/Enemy/CherryDeath.wav" type="AudioStream" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70, 70 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 50.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "attack"
+length = 1.37
+step = 0.01
+tracks/0/type = "method"
+tracks/0/path = NodePath("Flippable/AnimatedSprite")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.69 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "idle" ],
+"method": "play"
+}, {
+"args": [ "attack" ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/AnimatedSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.69 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Controller")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.15 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.37 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "chase" ],
+"method": "set_state"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("Alert")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.01, 1.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 400, 50 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "attack",
+"speed": 9.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "walk",
+"speed": 9.0
+} ]
+
+[node name="CherryCrawler" instance=ExtResource( 1 )]
+colors = [ Color( 0.803922, 0.113725, 0.439216, 1 ), Color( 0.34902, 0.862745, 0.282353, 1 ), Color( 1, 1, 1, 1 ), Color( 0.278431, 0.137255, 0.360784, 1 ) ]
+maxhealth = 75
+coin = 8
+walkdistance = 1000.0
+turntime = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="Controller" parent="." index="4"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/attack = SubResource( 3 )
+
+[node name="HitBox" parent="Flippable" index="2"]
+position = Vector2( 400, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flippable" index="3"]
+position = Vector2( 0, -50 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 5 )
+animation = "idle"
+
+[node name="Alert" parent="." index="10"]
+stream = ExtResource( 17 )
+volume_db = -12.0
+
+[node name="Hit" parent="." index="11"]
+stream = ExtResource( 18 )
+volume_db = -4.0
+
+[node name="Death" parent="." index="12"]
+stream = ExtResource( 19 )
+

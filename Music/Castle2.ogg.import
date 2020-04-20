@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Castle2.ogg-48e80a212cddd71bfc76f2341776b504.oggstr"
+
+[deps]
+
+source_file="res://Music/Castle2.ogg"
+dest_files=[ "res://.import/Castle2.ogg-48e80a212cddd71bfc76f2341776b504.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

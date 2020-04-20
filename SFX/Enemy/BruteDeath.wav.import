@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BruteDeath.wav-859e379b75c6956f3ec3b3b8ef33bd9e.sample"
+
+[deps]
+
+source_file="res://SFX/Enemy/BruteDeath.wav"
+dest_files=[ "res://.import/BruteDeath.wav-859e379b75c6956f3ec3b3b8ef33bd9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bell.wav-fa627b822de7736b386582006b96048b.sample"
+
+[deps]
+
+source_file="res://SFX/Bell.wav"
+dest_files=[ "res://.import/Bell.wav-fa627b822de7736b386582006b96048b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

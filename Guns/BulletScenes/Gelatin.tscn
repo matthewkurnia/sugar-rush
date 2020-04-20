@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Guns/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guns/BulletScenes/Gelatin.gd" type="Script" id=2]
+[ext_resource path="res://Guns/Assets/Sprites/Bullets/Gelatin1.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 30.0
+
+[node name="Bullet" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+bulletvelo = 4000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="3"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
+

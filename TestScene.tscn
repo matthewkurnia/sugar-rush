@@ -1,0 +1,119 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Levels/1/WallTile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/2/WallTile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/3/WallTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Guns/DroppedGun.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/SoftPlatform1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Enemies/EnemyScenes/Spikes.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemies/EnemyScenes/SwingingAxe.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Enemies/EnemyScenes/Cannon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Misc/Decor/Sprites/Lollipop1.png" type="Texture" id=11]
+[ext_resource path="res://Levels/SoftBaseTile.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/3/Parallax.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Levels/3/Segments/Basic/8.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Misc/Coin.tscn" type="PackedScene" id=15]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Misc/TitleCard.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Misc/Chest.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Misc/Shop.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Misc/Gate.tscn" type="PackedScene" id=20]
+
+[node name="Node" type="Node"]
+
+[node name="1" type="Node2D" parent="."]
+
+[node name="Wall" parent="1" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 8, 0, 0, 9, 0, 4, 10, 0, 2, 11, 0, 4, 12, 0, 1, 13, 0, 2, 14, 0, 4, 15, 0, 4, 16, 0, 2, 65544, 0, 65536, 65545, 0, 262145, 65546, 0, 262145, 65547, 0, 262145, 65548, 0, 262145, 65549, 0, 196609, 65550, 0, 262145, 65551, 0, 262145, 65552, 0, 196609, 131072, 0, 0, 131073, 0, 2, 131074, 0, 2, 131075, 0, 3, 131076, 0, 2, 131077, 0, 2, 131078, 0, 2, 131079, 0, 2, 131080, 0, 131076, 131081, 0, 262145, 131082, 0, 196609, 131083, 0, 196609, 131084, 0, 262145, 131085, 0, 262145, 131086, 0, 262145, 131087, 0, 262145, 131088, 0, 262145, 196608, 0, 327680, 196609, 0, 65540, 196610, 0, 262145, 196611, 0, 262145, 196612, 0, 262145, 196613, 0, 262145, 196614, 0, 262145, 196615, 0, 262145, 196616, 0, 262145, 196617, 0, 262145, 196618, 0, 262145, 196619, 0, 262145, 196620, 0, 262145, 196621, 0, 262145, 196622, 0, 262145, 196623, 0, 262145, 196624, 0, 262145, 262145, 0, 131072, 262146, 0, 262145, 262147, 0, 262145, 262148, 0, 262145, 262149, 0, 262145, 262150, 0, 262145, 262151, 0, 262145, 262152, 0, 262145, 262153, 0, 262145, 262154, 0, 262145, 262155, 0, 196609, 262156, 0, 262145, 262157, 0, 262145, 262158, 0, 262145, 262159, 0, 262145, 262160, 0, 262145, 327681, 0, 327680, 327682, 0, 327681, 327683, 0, 327681, 327684, 0, 327681, 327685, 0, 327683, 327686, 0, 327683, 327687, 0, 327684, 327688, 0, 327684, 327689, 0, 327684, 327690, 0, 327682, 327691, 0, 327683, 327692, 0, 327683, 327693, 0, 327683, 327694, 0, 327684, 327695, 0, 327684, 327696, 0, 327681 )
+
+[node name="2" type="Node2D" parent="."]
+
+[node name="Wall" parent="2" instance=ExtResource( 2 )]
+
+[node name="3" type="Node2D" parent="."]
+
+[node name="Wall" parent="3" instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+editor/display_folded = true
+position = Vector2( 1299.2, -448 )
+
+[node name="DroppedGun" parent="." instance=ExtResource( 5 )]
+position = Vector2( 883.833, -17.6179 )
+gun_id = 8
+
+[node name="DroppedGun2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 683.833, 134.5 )
+gun_id = 5
+
+[node name="Camera" parent="." instance=ExtResource( 6 )]
+
+[node name="SoftPlatform1" parent="." instance=ExtResource( 7 )]
+
+[node name="Spikes" parent="." instance=ExtResource( 8 )]
+position = Vector2( 320, 256 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 192, 256 )
+
+[node name="SwingingAxe" parent="." instance=ExtResource( 9 )]
+position = Vector2( 384, 640 )
+
+[node name="Cannon" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2048, 192 )
+rotation = 3.14159
+
+[node name="Cannon2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2048, 64 )
+rotation = 3.14159
+
+[node name="Lollipop1" type="Sprite" parent="."]
+position = Vector2( 2202.98, 30.2339 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 11 )
+
+[node name="SoftBaseTile" parent="." instance=ExtResource( 12 )]
+tile_data = PoolIntArray( 65547, 0, 0 )
+
+[node name="4" parent="." instance=ExtResource( 13 )]
+
+[node name="Segment1" parent="." instance=ExtResource( 14 )]
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1152, -60 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1216, -60 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1324, -80 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1464, -64 )
+
+[node name="UI" parent="." instance=ExtResource( 16 )]
+
+[node name="TitleCard" parent="UI" instance=ExtResource( 17 )]
+
+[node name="Chest" parent="." instance=ExtResource( 18 )]
+position = Vector2( 1344, -147.118 )
+level = 10
+
+[node name="Shop" parent="." instance=ExtResource( 19 )]
+position = Vector2( 1600, -208 )
+level = 2
+
+[node name="Gate" parent="." instance=ExtResource( 20 )]
+position = Vector2( 770.833, 104 )
+destination_scene = "res://Levels/1/Level.tscn"
+
+[node name="TextureProgress" type="TextureProgress" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+
+[editable path="Player"]
+
+[editable path="Gate"]

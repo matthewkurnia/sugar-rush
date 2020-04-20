@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guns/Assets/Sprites/Guns/SMG.png" type="Texture" id=2]
+
+[node name="Gun" index="0" instance=ExtResource( 1 )]
+position = Vector2( 0, -4.97497 )
+rotation = -0.0872665
+gun_id = 12
+bullettype = "Gum"
+knockback = 0.02
+firerate = 670
+spread = 4.0
+nozzlepos = Vector2( 130, -7 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+

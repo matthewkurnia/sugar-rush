@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Menu/AreYouSureAboutThat.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Montserrat/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Menu/YesButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Menu/NoButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="AreYouSureAboutThat" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.443137, 0.101961, 0.184314, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 112.0
+margin_top = 80.0
+margin_right = 912.0
+margin_bottom = 519.0
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 1 )
+text = "Are you sure? Your progress this run will be lost."
+align = 1
+
+[node name="Button1" parent="CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 35.0
+margin_bottom = 235.0
+
+[node name="Button2" parent="CenterContainer/VBoxContainer" instance=ExtResource( 4 )]
+margin_top = 239.0
+margin_bottom = 439.0
+

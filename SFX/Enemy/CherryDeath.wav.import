@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CherryDeath.wav-9478d4fd351667fd836386b400d36477.sample"
+
+[deps]
+
+source_file="res://SFX/Enemy/CherryDeath.wav"
+dest_files=[ "res://.import/CherryDeath.wav-9478d4fd351667fd836386b400d36477.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

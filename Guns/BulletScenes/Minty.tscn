@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Guns/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Guns/Assets/Sprites/Bullets/Minty.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+height = 25.0
+
+[node name="Bullet" index="0" instance=ExtResource( 1 )]
+bulletvelo = 1500
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" index="0"]
+shape = SubResource( 1 )
+

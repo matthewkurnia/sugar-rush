@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Misc/Chest.gd" type="Script" id=1]
+[ext_resource path="res://Misc/Chest.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 80, 110 )
+
+[node name="Chest" type="KinematicBody2D"]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource( 1 )
+colors = [ Color( 0.623529, 0.0784314, 0.117647, 1 ), Color( 0.431373, 0.0431373, 0.0823529, 1 ), Color( 0.972549, 0.917647, 0.286275, 1 ), Color( 0.847059, 0.627451, 0.243137, 1 ) ]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+

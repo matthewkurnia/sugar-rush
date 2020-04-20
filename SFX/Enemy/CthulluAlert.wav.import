@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CthulluAlert.wav-7bef7fd87a26229f5bef0e793d254b0d.sample"
+
+[deps]
+
+source_file="res://SFX/Enemy/CthulluAlert.wav"
+dest_files=[ "res://.import/CthulluAlert.wav-7bef7fd87a26229f5bef0e793d254b0d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

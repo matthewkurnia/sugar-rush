@@ -1,0 +1,207 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/JellySlime.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0000.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0001.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0002.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0003.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0004.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0005.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0006.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0007.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0008.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0009.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0010.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0011.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0012.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0013.png" type="Texture" id=16]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0014.png" type="Texture" id=17]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0015.png" type="Texture" id=18]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0016.png" type="Texture" id=19]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0017.png" type="Texture" id=20]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0018.png" type="Texture" id=21]
+[ext_resource path="res://Enemies/Assets/Sprites/31/JellySlime0019.png" type="Texture" id=22]
+[ext_resource path="res://SFX/Enemy/SlimeAlert.wav" type="AudioStream" id=23]
+[ext_resource path="res://SFX/Enemy/SlimeDeath.wav" type="AudioStream" id=24]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 65.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 350, 50 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "attack",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=4]
+resource_name = "attack"
+length = 2.08
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Flippable/AnimatedSprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "attack" ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Flippable/AnimatedSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Controller")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.76 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 2.08 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "chase" ],
+"method": "set_state"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Alert")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.01 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Hit")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.76 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "default"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8 ),
+"transitions": PoolRealArray( 3.36359, 0.812252, 0.466516 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.45, 0.55 ), Vector2( 0.55, 0.46 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 80, 75 )
+
+[node name="JellySlime" index="0" instance=ExtResource( 1 )]
+colors = [ Color( 0.509804, 0.905882, 0.164706, 1 ), Color( 0.145098, 0.54902, 0.254902, 1 ), Color( 1, 1, 1, 1 ), Color( 0.870588, 0.176471, 0.196078, 1 ) ]
+maxhealth = 400
+coin = 20
+walkdistance = 3000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+shape = SubResource( 1 )
+
+[node name="Controller" parent="." index="3"]
+script = ExtResource( 2 )
+
+[node name="HitBox" parent="Flippable" index="2"]
+position = Vector2( 350, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flippable" index="3"]
+position = Vector2( 0, 80 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="6"]
+anims/attack = SubResource( 4 )
+anims/default = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="7"]
+shape = SubResource( 6 )
+
+[node name="Alert" parent="." index="10"]
+stream = ExtResource( 23 )
+volume_db = -8.0
+
+[node name="Hit" parent="." index="11"]
+stream = ExtResource( 24 )
+volume_db = -2.0
+pitch_scale = 1.5
+
+[node name="Death" parent="." index="12"]
+stream = ExtResource( 24 )
+
+[connection signal="tree_exiting" from="." to="Controller" method="_on_GroundedEnemy_tree_exiting"]

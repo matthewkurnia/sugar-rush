@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Magnum.wav-df567fb5ec8cfb6fcdb895a5a624abaf.sample"
+
+[deps]
+
+source_file="res://SFX/Magnum.wav"
+dest_files=[ "res://.import/Magnum.wav-df567fb5ec8cfb6fcdb895a5a624abaf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

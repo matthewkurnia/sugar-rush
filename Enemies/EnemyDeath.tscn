@@ -1,0 +1,136 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Enemies/EnemyDeath.gd" type="Script" id=1]
+[ext_resource path="res://Misc/Debris0000.png" type="Texture" id=2]
+[ext_resource path="res://Misc/Debris0001.png" type="Texture" id=3]
+[ext_resource path="res://Misc/Debris0002.png" type="Texture" id=4]
+[ext_resource path="res://Misc/Debris0003.png" type="Texture" id=5]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0000.png" type="Texture" id=6]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0002.png" type="Texture" id=7]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0003.png" type="Texture" id=8]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0004.png" type="Texture" id=9]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0005.png" type="Texture" id=10]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0006.png" type="Texture" id=11]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0007.png" type="Texture" id=12]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/White0008.png" type="Texture" id=13]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10000.png" type="Texture" id=14]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10001.png" type="Texture" id=15]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10002.png" type="Texture" id=16]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10003.png" type="Texture" id=17]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10004.png" type="Texture" id=18]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10005.png" type="Texture" id=19]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10006.png" type="Texture" id=20]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10007.png" type="Texture" id=21]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color10008.png" type="Texture" id=22]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20000.png" type="Texture" id=23]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20001.png" type="Texture" id=24]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20002.png" type="Texture" id=25]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20003.png" type="Texture" id=26]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20004.png" type="Texture" id=27]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20005.png" type="Texture" id=28]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20006.png" type="Texture" id=29]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20007.png" type="Texture" id=30]
+[ext_resource path="res://Guns/Assets/Sprites/Explosion/Color20008.png" type="Texture" id=31]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0.647059, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0, 1 ), 0.0, -0.430598, 0, 0, Vector2( 0.998066, 0.5209 ), -0.688527, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 30.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 0.77
+angular_velocity = 188.31
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 6 ), null, ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), null ],
+"loop": false,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="EnemyDeath" type="Node2D"]
+z_index = 1
+script = ExtResource( 1 )
+color1 = Color( 1, 0.972549, 0.247059, 1 )
+color2 = Color( 0.910156, 0.645953, 0.0853271, 1 )
+
+[node name="Debris" type="Node2D" parent="."]
+
+[node name="Debris1" type="Particles2D" parent="Debris"]
+emitting = false
+amount = 30
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 2 )
+
+[node name="Debris2" type="Particles2D" parent="Debris"]
+emitting = false
+amount = 20
+lifetime = 0.75
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 3 )
+
+[node name="Debris3" type="Particles2D" parent="Debris"]
+emitting = false
+amount = 10
+lifetime = 0.75
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="Debris4" type="Particles2D" parent="Debris"]
+emitting = false
+amount = 5
+lifetime = 0.5
+local_coords = false
+draw_order = 1
+process_material = SubResource( 5 )
+texture = ExtResource( 5 )
+
+[node name="White" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+
+[node name="Dash1" type="AnimatedSprite" parent="."]
+frames = SubResource( 7 )
+
+[node name="Dash2" type="AnimatedSprite" parent="."]
+frames = SubResource( 8 )
+

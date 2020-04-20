@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Assets/Sprites/Bgr/1_1.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Assets/Sprites/Bgr/1_2.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Assets/Sprites/Bgr/1_3.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Assets/Sprites/Bgr/1_4.png" type="Texture" id=4]
+
+[node name="1" type="Node2D"]
+
+[node name="Bgr" type="ParallaxBackground" parent="."]
+editor/display_folded = true
+
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="Bgr"]
+editor/display_folded = true
+motion_scale = Vector2( 0.42, 0.42 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="Bgr/ParallaxLayer1"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Bgr"]
+editor/display_folded = true
+motion_scale = Vector2( 0.35, 0.35 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="Bgr/ParallaxLayer2"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Bgr"]
+editor/display_folded = true
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="Bgr/ParallaxLayer3"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Bgr"]
+motion_scale = Vector2( 0.42, 0.42 )
+motion_mirroring = Vector2( 1920, 1920 )
+
+[node name="Sprite" type="Sprite" parent="Bgr/ParallaxLayer4"]
+texture = ExtResource( 4 )
+centered = false
+

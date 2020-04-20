@@ -1,0 +1,99 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Enemies/FlyingEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/CandyCthulhu.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0000.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0001.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0002.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0003.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0004.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0005.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuTentacle0006.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0000.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0001.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0002.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0003.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0004.png" type="Texture" id=14]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0005.png" type="Texture" id=15]
+[ext_resource path="res://Enemies/Assets/Sprites/32/CandyCthulhuHead0006.png" type="Texture" id=16]
+[ext_resource path="res://SFX/Enemy/CthulluAlert.wav" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Laser2.wav" type="AudioStream" id=18]
+[ext_resource path="res://SFX/Enemy/CthulluDeath.wav" type="AudioStream" id=19]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 95.0
+height = 140.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[node name="FlyingEnemy" instance=ExtResource( 1 )]
+colors = [ Color( 0.52549, 0.188235, 0.835294, 1 ), Color( 0.407843, 0.87451, 0.0941176, 1 ), Color( 1, 1, 1, 1 ), Color( 0.176471, 0.627451, 0.2, 1 ) ]
+maxhealth = 270
+coin = 12
+attacktime = 2.5
+
+[node name="Controller" parent="." index="0"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+shape = SubResource( 1 )
+
+[node name="Tentacle5" type="AnimatedSprite" parent="Sprites" index="0"]
+position = Vector2( 0, -25 )
+rotation = 0.349066
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+
+[node name="Tentacle4" type="AnimatedSprite" parent="Sprites" index="1"]
+position = Vector2( 50, -50 )
+rotation = -0.349066
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+frame = 6
+
+[node name="Tentacle3" type="AnimatedSprite" parent="Sprites" index="2"]
+position = Vector2( 0, -10 )
+rotation = -2.96706
+scale = Vector2( 0.5, -0.5 )
+frames = SubResource( 2 )
+frame = 1
+
+[node name="Tentacle2" type="AnimatedSprite" parent="Sprites" index="3"]
+position = Vector2( 40, -25 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+frame = 3
+
+[node name="Tentacle1" type="AnimatedSprite" parent="Sprites" index="4"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+
+[node name="Head" type="AnimatedSprite" parent="Sprites" index="5"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 3 )
+
+[node name="Alert" parent="." index="10"]
+stream = ExtResource( 17 )
+
+[node name="Hit" parent="." index="11"]
+stream = ExtResource( 18 )
+volume_db = -5.0
+
+[node name="Death" parent="." index="12"]
+stream = ExtResource( 19 )
+
+[connection signal="timeout" from="Controller/AttackTimer" to="Controller" method="fire"]

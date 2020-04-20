@@ -1,0 +1,243 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Enemies/GroundedEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/EnemyScenes/DevilLollipop.gd" type="Script" id=2]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0000.png" type="Texture" id=3]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0001.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0002.png" type="Texture" id=5]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0003.png" type="Texture" id=6]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0004.png" type="Texture" id=7]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0005.png" type="Texture" id=8]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0006.png" type="Texture" id=9]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0007.png" type="Texture" id=10]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0008.png" type="Texture" id=11]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0009.png" type="Texture" id=12]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0010.png" type="Texture" id=13]
+[ext_resource path="res://Enemies/Assets/Sprites/11/DevilLollipop0011.png" type="Texture" id=14]
+[ext_resource path="res://SFX/Enemy/LollipopAlert.wav" type="AudioStream" id=15]
+[ext_resource path="res://SFX/Sword2.wav" type="AudioStream" id=16]
+[ext_resource path="res://SFX/Enemy/LollipopDeath.wav" type="AudioStream" id=17]
+[ext_resource path="res://SFX/Enemy/LollipopBounce.wav" type="AudioStream" id=18]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 70, 128 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 50.0
+height = 100.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "attack"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Flippable/AnimatedSprite")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "default" ],
+"method": "play"
+}, {
+"args": [ "attack" ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Controller")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "chase" ],
+"method": "set_state"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Flippable/AnimatedSprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Flippable/AnimatedSprite:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Flippable/AnimatedSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 128 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Alert")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Hit")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.6
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Flippable/AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.25, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ), Vector2( 0.6, 0.4 ), Vector2( 0.4, 0.6 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Flippable/AnimatedSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.4 ),
+"transitions": PoolRealArray( 1, 0.615572, 1.41421 ),
+"update": 0,
+"values": [ Vector2( 0, 128 ), Vector2( 0, 128 ), Vector2( 0, 100 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("Bounce")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 50.0
+height = 100.0
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "attack",
+"speed": 12.0
+} ]
+
+[node name="DevilLollipop" index="0" instance=ExtResource( 1 )]
+colors = [ Color( 0.862745, 0.137255, 0.180392, 1 ), Color( 0.611765, 0.0627451, 0.321569, 1 ), Color( 1, 1, 1, 1 ), Color( 0.8, 0.882353, 0.694118, 1 ) ]
+walkdistance = 800.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" index="0"]
+shape = SubResource( 2 )
+
+[node name="Controller" parent="." index="4"]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+anims/attack = SubResource( 3 )
+anims/default = SubResource( 4 )
+
+[node name="HitBox" parent="Flippable" index="2"]
+position = Vector2( 125, 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippable/HitBox" index="0"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Flippable" index="3"]
+position = Vector2( 0, 128 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 6 )
+
+[node name="Alert" parent="." index="10"]
+stream = ExtResource( 15 )
+volume_db = -10.0
+
+[node name="Hit" parent="." index="11"]
+stream = ExtResource( 16 )
+
+[node name="Death" parent="." index="12"]
+stream = ExtResource( 17 )
+
+[node name="Bounce" type="AudioStreamPlayer2D" parent="." index="13"]
+stream = ExtResource( 18 )
+volume_db = -6.0
+

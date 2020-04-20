@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/Tutorial/Helper.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Montserrat/Montserrat-Bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 300.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Helper1" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Popup" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -175.0
+margin_right = 250.0
+margin_bottom = 175.0
+rect_min_size = Vector2( 500, 350 )
+custom_fonts/font = SubResource( 2 )
+text = "Lorem Ipsum"
+align = 1
+autowrap = true
+
+[connection signal="body_entered" from="." to="." method="_on_Helper1_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Helper1_body_exited"]
